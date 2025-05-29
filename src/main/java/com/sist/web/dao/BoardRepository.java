@@ -12,8 +12,7 @@ public interface BoardRepository extends JpaRepository<BoardEntity, Integer> {
       + "LIMIT :start,10", nativeQuery = true)
   public List<BoardEntity> boardListData(@Param("start") int start);
 
-  // @Query => 입력되는 데이터가 있는 경우 => @Param
-  // @Param 두개이상 => Integer
+  @Query(value = "SELECT * FROM board WHERE no=:no", nativeQuery = true)
   public BoardEntity findByNo(int no);
 
 }

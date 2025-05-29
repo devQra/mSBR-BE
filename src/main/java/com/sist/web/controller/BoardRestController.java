@@ -26,8 +26,6 @@ public class BoardRestController {
   @Autowired
   private BoardRepository bDao;
 
-  // http://localhost/board/list_react/${page}
-  // ResponseEntity<Map>
   @GetMapping("/board/list_react/{page}")
   public Map board_list(@PathVariable("page") int page) {
     // 2025-05-21 00:00:00
@@ -66,20 +64,6 @@ public class BoardRestController {
     return map;
   }
 
-  /*
-   *    JPA => DataSet => VO를 가지고 데이터베이스 제어
-   *             |
-   *           SQL없이 사용이 가능
-   *    => 복잡한 쿼리 , WHERE (조건문) => 규칙
-   *       find    By     No(int no)  WHERE no=?
-   *       SELECT  WHERE  Column
-   *       SELECT DISTINCT ~
-   *       findDistinctBy
-   *    => 나머지는 제공하는 메소드 사용
-   *       = count() SELECT COUNT(*) ~
-   *       = save() => insert/update
-   *       = delete()
-   */
   @GetMapping("/board/detail_react/{no}")
   public BoardEntity board_detail(@PathVariable("no") int no) {
     BoardEntity vo = bDao.findByNo(no);
@@ -112,21 +96,6 @@ public class BoardRestController {
     return vo;
   }
 
-  /*
-   *      @Id
-      private int no; ========> insert,update = true
-      private String name;====> insert,update = true
-      private String subject;===> insert,update = true
-      private String content;===>  insert,update = true
-
-      @Column(insertable = true , updatable = false)
-      private String pwd; ===>
-
-      @Column(insertable = true , updatable = false)
-
-      private String regdate;
-      private int hit; ===>  insert,update = true
-   */
   @PutMapping("/board/update_react_ok")
   public Map board_update_ok(@RequestBody BoardEntity vo) {
     Map map = new HashMap();

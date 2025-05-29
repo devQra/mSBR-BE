@@ -25,12 +25,13 @@ public interface BusanInfoRepository extends JpaRepository<BusanInfoEntity, Inte
   @Query(value = "SELECT CEIL(COUNT(*)/12.0) FROM busan_info "
       + "WHERE cno=:cno", nativeQuery = true)
   public int buasnTotalPage(@Param("cno") Integer cno);
+
   // '%'||#{} || '%'
    /*
    @Query(value="SELECT * FROM busan_info "
 		 +"WHERE title LIKE CONCAT('%',:title,'%')",nativeQuery = true)
-   public List<BusanInfoEntity> busanFindData(@Param("title") String title);*/
-
+   public List<BusanInfoEntity> busanFindData(@Param("title") String title);
+   */
   public List<BusanInfoEntity> findByTitleContaining(@Param("title") String title);
 
 }

@@ -9,15 +9,6 @@ import java.time.format.DateTimeFormatter;
 import lombok.Data;
 import org.hibernate.annotations.DynamicUpdate;
 
-/*
- *   no int AI PK
-	 name text
-	 subject text
-	 content text
-	 pwd text
-	 regdate datetime
-	 hit int
- */
 @Entity(name = "board")
 @Data
 @DynamicUpdate

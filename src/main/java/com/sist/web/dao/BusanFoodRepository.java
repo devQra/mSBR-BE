@@ -8,16 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-/*
- * public int getNo();
-   public String getPoster();
-   public String getName();
-   public int getHit();
-   public int getJjimcount();
-   public int getLikecount();
-   public double getScore();
-   public String getType();
- */
 @Repository
 public interface BusanFoodRepository extends JpaRepository<BusanFoodEntity, Integer> {
 
@@ -34,7 +24,7 @@ public interface BusanFoodRepository extends JpaRepository<BusanFoodEntity, Inte
   @Query(value = "SELECT CEIL(COUNT(*)/12.0) FROM busan_food")
   public int busanFoodTotalPage();
 
-  // SELECT * FROM busan_food WHERE fno=?
+  @Query(value = "SELECT * FROM busan_food WHERE fno=:fno", nativeQuery = true)
   public BusanFoodEntity findByFno(@Param("fno") int fno);
 }
 

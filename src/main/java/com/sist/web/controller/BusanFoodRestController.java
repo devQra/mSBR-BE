@@ -58,12 +58,6 @@ public class BusanFoodRestController {
     if (endPage > totalpage) {
       endPage = totalpage;
     }
-    /*
-     *   {
-     *     curpage:,
-     *     to...
-     *   }
-     */
 
     map.put("curpage", page);
     map.put("totalpage", totalpage);
