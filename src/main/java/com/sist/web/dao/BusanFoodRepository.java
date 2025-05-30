@@ -24,7 +24,7 @@ public interface BusanFoodRepository extends JpaRepository<BusanFoodEntity, Inte
   @Query(value = "SELECT CEIL(COUNT(*)/12.0) FROM busan_food")
   public int busanFoodTotalPage();
 
-  @Query(value = "SELECT * FROM busan_food WHERE fno=:fno", nativeQuery = true)
+  // SELECT * FROM busan_food WHERE fno=?
   public BusanFoodEntity findByFno(@Param("fno") int fno);
 }
 

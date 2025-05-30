@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-// => Restful => GET(읽기) SELECT , POST(쓰기) INSERT , PUT(수정) UPDATE , DELETE(삭제)
-@CrossOrigin(origins = "*") // 모든 port 허용
-// 1521 / 8080 => aws는 0~1023까지 port를 접근 거부
+@CrossOrigin(origins = "*")
 public class BoardRestController {
 
   @Autowired
